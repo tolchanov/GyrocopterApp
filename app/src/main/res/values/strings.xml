@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">HyrocopterTestApp v1.3</string>
+    <string name="devices">USB Devices</string>
+
+    <string name="no_devices">&#60;no USB-devices attached&#62;\n&#60;connect device or select feed file&#62;</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="double_pattern">%.2f</string>
+    <string name="baud_title">Baud rate</string>
+    <string name="compass_label">0.00°</string>
+    <string name="work_gps_heading">GPS Heading</string>
+    <string name="work_gps_speed">GPS Speed</string>
+    <string name="work_steering_in">Steering In</string>
+    <string name="work_bar_altitude">Bar Altitude</string>
+    <string name="work_range_to_base">Range to base:</string>
+    <string name="work_mode">Mode:</string>
+    <string name="hint_lat">lat</string>
+    <string name="hint_lng">lng</string>
+    <string name="hint_radius">R (m)</string>
+    <string name="button_draw">DRAW</string>
+    <string name="button_save">SAVE</string>
+    <string name="button_cache_map">CACHE MAP</string>
+    
+    <string name="pattern_speed">%.2f knots</string>
+    <string name="pattern_degrees">%.2f°</string>
+    <string name="pattern_meters">%.2f m</string>
+    <string name="default_mode">None</string>
+
+    <string name="maps_toast_cached">Map cached!</string>
+    <string name="maps_toast_error">Error occurred!</string>
+    <string name="maps_text_caching">Caching&#8230; %d/%d</string>
+    <string name="work_button_clear_log">Clear log</string>
+
+
+    <array name="header">
+        <item>GPS Time (POSIX)</item>
+        <item>GPS Latitude</item>
+        <item>GPS Longitude</item>
+        <item>GPS Altitude (m)</item>
+        <item>GPS Heading (deg)</item>
+        <item>GPS Speed (m/sec)</item>
+        <item>GPS range to Base (m)</item>
+        <item>GPS Bearing to Base</item>
+        <item>Angle to Radius</item>
+        <item>Angle Error</item>
+        <item>IMU Yaw</item>
+        <item>IMU Pitch</item>
+        <item>IMU Roll</item>
+        <item>Bar Altitude (m)</item>
+        <item>Steering In</item>
+        <item>Flight Mode</item>
+    </array>
+</resources>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#333333"
+    android:padding="8dp">
+
+    <fragment
+        android:id="@+id/work_map_frame"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/work_map_type_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_satellite"
+        android:background="@drawable/bg_map_button"
+        android:padding="8dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="@id/work_map_frame"
+        app:layout_constraintStart_toStartOf="@id/work_map_frame"
+        android:layout_margin="8dp"/>
+
+    <ScrollView
+        android:id="@+id/work_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/work_map_frame"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/work_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6" />
+
+            <TextView
+                android:id="@+id/work_speed_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/work_gps_speed"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/work_speed"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:max="160"
+                app:layout_constraintBottom_toBottomOf="@id/work_speed_label"
+                app:layout_constraintEnd_toStartOf="@id/work_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/work_speed_label" />
+
+            <TextView
+                android:id="@+id/work_speed_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="0.00 knots"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_guideline"
+                app:layout_constraintTop_toBottomOf="@id/work_speed_title" />
+
+            <TextView
+                android:id="@+id/work_compass_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/work_gps_heading"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_speed_label" />
+
+            <com.test.hyrocoptertestapp.utils.view.CompassView
+                android:id="@+id/work_compass"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/work_compass_label"
+                app:layout_constraintEnd_toStartOf="@id/work_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/work_compass_label" />
+
+            <TextView
+                android:id="@+id/work_compass_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="4dp"
+                tools:text="@string/compass_label"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_guideline"
+                app:layout_constraintTop_toBottomOf="@id/work_compass_title" />
+
+            <TextView
+                android:id="@+id/work_steering_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/work_steering_in"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_compass_label" />
+
+            <ProgressBar
+                android:id="@+id/work_steering"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:max="1000"
+                app:layout_constraintBottom_toBottomOf="@id/work_steering_label"
+                app:layout_constraintEnd_toStartOf="@id/work_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/work_steering_label" />
+
+            <TextView
+                android:id="@+id/work_steering_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="0"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_guideline"
+                app:layout_constraintTop_toBottomOf="@id/work_steering_title" />
+
+            <TextView
+                android:id="@+id/work_altitude_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/work_bar_altitude"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_steering_label" />
+
+            <ProgressBar
+                android:id="@+id/work_altitude"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:max="360"
+                app:layout_constraintBottom_toBottomOf="@id/work_altitude_label"
+                app:layout_constraintEnd_toStartOf="@id/work_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/work_altitude_label" />
+
+            <TextView
+                android:id="@+id/work_altitude_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="0.00"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_guideline"
+                app:layout_constraintTop_toBottomOf="@id/work_altitude_title" />
+
+            <TextView
+                android:id="@+id/work_base_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/work_range_to_base"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_altitude_label" />
+
+            <TextView
+                android:id="@+id/work_base"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                tools:text="123.3 m"
+                android:textColor="@android:color/holo_blue_light"
+                app:layout_constraintEnd_toStartOf="@id/work_guideline"
+                app:layout_constraintStart_toEndOf="@id/work_base_label"
+                app:layout_constraintTop_toTopOf="@id/work_base_label" />
+
+            <TextView
+                android:id="@+id/work_mode_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/work_mode"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintStart_toEndOf="@id/work_guideline"
+                app:layout_constraintTop_toTopOf="@id/work_base_label" />
+
+            <TextView
+                android:id="@+id/work_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                tools:text="None"
+                android:textColor="@android:color/holo_blue_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_mode_label"
+                app:layout_constraintTop_toTopOf="@id/work_mode_label" />
+
+
+            <EditText
+                android:id="@+id/work_circle_lat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_lat"
+                android:inputType="numberDecimal"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintEnd_toStartOf="@id/work_circle_lng"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_base_label"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <EditText
+                android:id="@+id/work_circle_lng"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_lng"
+                android:inputType="numberDecimal"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintEnd_toStartOf="@id/work_circle_radius"
+                app:layout_constraintStart_toEndOf="@id/work_circle_lat"
+                app:layout_constraintTop_toBottomOf="@id/work_base_label" />
+
+            <EditText
+                android:id="@+id/work_circle_radius"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:hint="@string/hint_radius"
+                android:inputType="numberDecimal"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintEnd_toStartOf="@id/work_circle_button"
+                app:layout_constraintStart_toEndOf="@id/work_circle_lng"
+                app:layout_constraintTop_toBottomOf="@id/work_base_label" />
+
+            <Button
+                android:id="@+id/work_circle_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/button_draw"
+                android:textColor="@android:color/holo_blue_bright"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/work_circle_radius"
+                app:layout_constraintTop_toBottomOf="@id/work_base_label" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/work_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/work_circle_lat">
+
+                <ImageView
+                    android:id="@+id/work_play_prev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_prev"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/work_play_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_pause"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/work_play_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/work_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_navigation"
+                android:text="@string/button_save"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/holo_blue_bright"/>
+            <Button
+                android:id="@+id/work_clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_navigation"
+                android:text="@string/work_button_clear_log"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/holo_blue_bright"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/work_dragger"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/work_card"
+        android:src="@drawable/ic_drawer"
+        android:background="@drawable/bg_drawer"
+        android:paddingStart="4dp" />
+
+    <ImageView
+        android:id="@+id/work_track_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/work_card"
+        android:src="@drawable/ic_track"
+        android:background="@drawable/bg_drawer"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="4dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/work_card"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/work_card_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/work_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/work_card_header"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/work_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#aa000000"
+        android:clickable="true"
+        android:padding="40dp"
+        android:visibility="gone" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
